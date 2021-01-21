@@ -10,7 +10,7 @@ RUN apt install -y  build-essential git  \
 					python-pip python2.7 \
 					python3-pip python3  \
                     wget bzip2 cmake vim
-RUN apt-get install build-essential lsb-release wget \
+RUN apt-get install -y build-essential lsb-release wget \
    automake autoconf gfortran \
    openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
    libblas-dev liblapack-dev libblas3 liblapack3 \
