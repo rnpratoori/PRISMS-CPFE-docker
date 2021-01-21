@@ -1,25 +1,20 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 LABEL maintainer="rnp@iastate.edu"
 
 USER root
-RUN apt-get update && apt-get install -y software-properties-common \
-    && add-apt-repository $REPO \
-    && apt-get update && apt-get install -y \
-    git \
-    libdeal.ii-dev=$VERSION \
-    locales \
-    ssh \
-    sudo \
-    ninja-build \
-    numdiff \
-    wget \
-    && rm -rf /var/lib/apt/lists/* \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+RUN apt update  -y && apt upgrade -y
+RUN apt install -y  build-essential git  \
+					gfortran             \
+					m4                   \
+					python-pip python2.7 \
+					python3-pip python3  \
+                    wget bzip2 cmake vim
+RUN apt-get install -y build-essential lsb-release wget \
+   automake autoconf gfortran \
+   openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
+   libblas-dev liblapack-dev libblas3 liblapack3 \
+   libsuitesparse-dev libtool libboost-all-dev zlib1g-dev
 
 # add and enable the default user
 ARG USER=rnp
@@ -37,7 +32,7 @@ WORKDIR $HOME
 #install dealii from candi without trilinos
 RUN git clone https://github.com/rnpratoori/candi.git
 RUN cd candi
-RUN ./candi.sh
+RUN ./candi.sh -y -y
 
 ENV DEAL_II_DIR /home/rnp/dealii-candi/
 
