@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 LABEL maintainer="rnp@iastate.edu"
 
-
+RUN apt update  -y && apt upgrade -y
 RUN apt-get install -y build-essential lsb-release wget \
    automake autoconf gfortran \
    openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
