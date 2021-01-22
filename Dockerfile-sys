@@ -12,6 +12,6 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # add and enable the default user
-ARG USER=dealii
+ARG USER=rnp
 RUN adduser --disabled-password --gecos '' $USER
 RUN adduser $USER sudo; echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
