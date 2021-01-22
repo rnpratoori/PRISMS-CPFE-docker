@@ -12,6 +12,6 @@ WORKDIR $HOME
 #install dealii from candi without trilinos
 RUN git clone https://github.com/rnpratoori/candi.git
 RUN cd candi
-CMD ["./candi.sh"]
+RUN ./candi.sh
 
 ENV DEAL_II_DIR /home/rnp/dealii-candi/
