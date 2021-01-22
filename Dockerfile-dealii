@@ -1,0 +1,17 @@
+FROM rana2593/prisms-cpfe:prereq
+MAINTAINER Raghunandan Pratoori "rnp@iastate.edu"
+
+#make sure everything is in place
+RUN chown -R $USER:$USER /home/$USER
+USER $USER
+ENV HOME /home/$USER
+ENV USER $USER
+ENV OMPI_MCA_btl "^vader"
+WORKDIR $HOME
+
+#install dealii from candi without trilinos
+RUN git clone https://github.com/rnpratoori/candi.git
+RUN cd candi
+RUN ./candi.sh
+
+ENV DEAL_II_DIR /home/rnp/dealii-candi/
