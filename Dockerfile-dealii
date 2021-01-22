@@ -10,6 +10,7 @@ ENV OMPI_MCA_btl "^vader"
 WORKDIR $HOME
 
 #install dealii from candi without trilinos
+RUN cd
 RUN git clone https://github.com/rnpratoori/candi.git
 RUN cd candi
 RUN cat candi.sh
