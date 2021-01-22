@@ -1,0 +1,9 @@
+FROM rana2593/prisms-cpfe:sys
+MAINTAINER Raghunandan Pratoori "rnp@iastate.edu"
+
+RUN apt-get update && apt-get install -y build-essential lsb-release wget \
+   automake autoconf gfortran \
+   openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
+   libblas-dev liblapack-dev libblas3 liblapack3 \
+   libsuitesparse-dev libtool libboost-all-dev zlib1g-dev \
+   splint tcl tcl-dev environment-modules qt4-dev-tools
