@@ -13,9 +13,6 @@ WORKDIR $HOME
 RUN cd
 RUN git clone https://github.com/rnpratoori/candi.git \
     && cd candi \
-    && cat candi.sh
-RUN source ~/.bashrc
-RUN source ./candi.sh
-RUN ./candi.sh
+    && ./candi.sh --prefix=/home/rnp/dealii-candi/
 
 ENV DEAL_II_DIR /home/rnp/dealii-candi/
