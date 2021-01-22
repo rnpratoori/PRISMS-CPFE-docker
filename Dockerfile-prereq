@@ -1,6 +1,7 @@
 FROM rana2593/prisms-cpfe:sys
 MAINTAINER Raghunandan Pratoori "rnp@iastate.edu"
 
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y build-essential lsb-release wget \
    automake autoconf gfortran \
    openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
